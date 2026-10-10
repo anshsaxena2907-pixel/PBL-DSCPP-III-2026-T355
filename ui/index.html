@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intelligent Traffic Routing - Map</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Intelligent Traffic Routing and Dynamic Congestion Simulation</h1>
+    <p>DSCPP-III-2026-T355 &middot; Road network view</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-label="Route controls">
+      <label for="source">Start</label>
+      <select id="source"></select>
+
+      <label for="destination">Destination</label>
+      <select id="destination"></select>
+
+      <button id="findRoute" type="button">Find route</button>
+      <button id="clearBtn" type="button" class="secondary">Clear selection</button>
+
+      <p id="status" role="status" aria-live="polite">Click two intersections on the map, or use the lists above.</p>
+
+      <h2>Traffic legend</h2>
+      <ul class="legend">
+        <li><span class="swatch free"></span>Free flow</li>
+        <li><span class="swatch moderate"></span>Moderate</li>
+        <li><span class="swatch heavy"></span>Heavy</li>
+        <li><span class="swatch closed"></span>Road closed</li>
+      </ul>
+    </section>
+
+    <section class="map-wrap" aria-label="Road network map">
+      <canvas id="map" width="800" height="500"></canvas>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
