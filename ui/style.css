@@ -1,0 +1,116 @@
+:root {
+  --bg: #f3f5f7;
+  --surface: #ffffff;
+  --ink: #1d2733;
+  --muted: #5d6b7a;
+  --line: #cfd6dd;
+  --accent: #0b5e8e;
+
+  /* traffic colours */
+  --free: #2e9e5b;
+  --moderate: #e8a317;
+  --heavy: #d23b3b;
+  --closed: #8a949e;
+
+  /* map markers */
+  --src: #0b5e8e;
+  --dst: #7a3fb0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.top {
+  background: var(--accent);
+  color: #fff;
+  padding: 16px 24px;
+}
+.top h1 { margin: 0; font-size: 1.3rem; }
+.top p  { margin: 2px 0 0; font-size: 0.9rem; opacity: 0.85; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  align-self: start;
+}
+.panel label { display: block; font-weight: 600; margin: 12px 0 4px; }
+.panel label:first-child { margin-top: 0; }
+.panel h2 { font-size: 1rem; margin: 20px 0 8px; }
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover { filter: brightness(1.1); }
+button.secondary {
+  margin-top: 8px;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+:focus-visible { outline: 3px solid #f0b429; outline-offset: 2px; }
+
+#status { margin: 14px 0 0; font-size: 0.9rem; color: var(--muted); min-height: 3em; }
+
+.legend { list-style: none; margin: 0; padding: 0; }
+.legend li { display: flex; align-items: center; gap: 10px; margin: 6px 0; font-size: 0.9rem; }
+.swatch { width: 28px; height: 6px; border-radius: 3px; display: inline-block; }
+.swatch.free     { background: var(--free); }
+.swatch.moderate { background: var(--moderate); }
+.swatch.heavy    { background: var(--heavy); }
+.swatch.closed   { background: repeating-linear-gradient(90deg, var(--closed) 0 6px, transparent 6px 10px); }
+
+.map-wrap {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px;
+}
+canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  background: #eef2ee;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+}
